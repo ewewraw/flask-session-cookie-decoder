@@ -45,4 +45,4 @@ function decodeFlaskSessionCookieJson(cookie) {
     return decodedData;
 }
 
-module.exports = {decodeFlaskSessionCookie};
+module.exports = {decodeFlaskSessionCookieJson};

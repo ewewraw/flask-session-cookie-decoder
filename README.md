@@ -14,17 +14,17 @@ npm install flask-session-cookie-decoder
 ## Usage
 
 ```javascript
-const { decodeFlaskSessionCookie } = require('flask-session-cookie-decoder');
+const { decodeFlaskSessionCookieJson } = require('flask-session-cookie-decoder');
 
 const cookie = 'YOUR_FLASK_SESSION_COOKIE_STRING_HERE';
-const decodedData = decodeFlaskSessionCookie(cookie);
+const decodedData = decodeFlaskSessionCookieJson(cookie);
 
 console.log(decodedData);
 ```
 
 ## Function Signature
 ```typescript
-decodeFlaskSessionCookie(cookie: string): string
+decodeFlaskSessionCookieJson(cookie: string): string
 ```
 
 
@@ -35,10 +35,10 @@ decodeFlaskSessionCookie(cookie: string): string
 
 ## Example
 ```javascript
-const { decodeFlaskSessionCookie } = require('flask-session-cookie-decoder');
+const { decodeFlaskSessionCookieJson } = require('flask-session-cookie-decoder');
 
 const cookie = 'YOUR_FLASK_SESSION_COOKIE_STRING_HERE';
-const decodedData = decodeFlaskSessionCookie(cookie);
+const decodedData = decodeFlaskSessionCookieJson(cookie);
 
 console.log(decodedData);
 ```
