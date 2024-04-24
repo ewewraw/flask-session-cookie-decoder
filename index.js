@@ -1,4 +1,5 @@
 const zlib = require("zlibt2");
+const Buffer = typeof window !== 'undefined' ? (window.Buffer || require("buffer").Buffer) : require("buffer").Buffer;
 
 /**
  * Decodes a Flask session cookie, extracting and decompressing the data stored within it.
