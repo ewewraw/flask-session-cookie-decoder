@@ -116,7 +116,7 @@ function decodeFlaskSessionCookieJsonWithZlibjs(cookie) {
 
     if (compressed) {
         try {
-            let inflate = new Zlibjs.Inflate(Buffer.from(data, 'base64'));
+            let inflate = new Zlibjs.inflate(Buffer.from(data, 'base64'));
             decodedData = inflate.decompress()
         } catch (error) {
             return `[Decompression error:  ${error}]`;
