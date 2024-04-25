@@ -1,5 +1,5 @@
 const zlib2 = require("zlibt2");
-import zlib from "zlib"
+const zlib = require("zlib");
 const Buffer = typeof window !== 'undefined' ? (window.Buffer || require("buffer").Buffer) : require("buffer").Buffer;
 
 /**
