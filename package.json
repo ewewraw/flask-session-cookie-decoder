@@ -1,6 +1,6 @@
 {
   "name": "flask-session-cookie-decoder",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A TypeScript library for decoding Flask session cookies. Easily extract and analyze data stored within Flask session cookies in your TypeScript projects.",
   "main": "index.ts",
   "scripts": {
@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "buffer": "^6.0.3",
-    "zlib": "^1.0.5",
+    "zlib-module-js": "^0.3.4",
+    "zlibjs": "^0.3.1",
     "zlibt2": "^0.6.1"
   }
 }
