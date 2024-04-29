@@ -14,17 +14,17 @@ npm install flask-session-cookie-decoder
 ## Usage
 
 ```javascript
-const { decodeFlaskSessionCookieJson } = require('flask-session-cookie-decoder');
+const { getDecodedSessionCookieJson } = require('flask-session-cookie-decoder');
 
 const cookie = 'YOUR_FLASK_SESSION_COOKIE_STRING_HERE';
-const decodedData = decodeFlaskSessionCookieJson(cookie);
+const decodedData = getDecodedSessionCookieJson(cookie);
 
 console.log(decodedData);
 ```
 
 ## Function Signature
 ```typescript
-decodeFlaskSessionCookieJson(cookie: string): string
+getDecodedSessionCookieJson(cookie: string): string
 ```
 
 
@@ -35,12 +35,12 @@ decodeFlaskSessionCookieJson(cookie: string): string
 
 ## Example
 ```javascript
-const { decodeFlaskSessionCookieJson } = require('flask-session-cookie-decoder');
+const { getDecodedSessionCookieJson } = require('flask-session-cookie-decoder');
 
-const cookie = 'YOUR_FLASK_SESSION_COOKIE_STRING_HERE';
-const decodedData = decodeFlaskSessionCookieJson(cookie);
+const cookie = "eyJpZCI6NSwibmFtZSI6Iml0c2Rhbmdlcm91cyJ9.6YP6T0BaO67XP--9UzTrmurXSmg"
+const decodedData = getDecodedSessionCookieJson(cookie);
 
-console.log(decodedData);
+console.log(decodedData); // {"id": 5, "name": "itsdangerous"}
 ```
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
