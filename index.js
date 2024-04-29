@@ -5,7 +5,7 @@ import pako from "pako";
  * @param {string} cookie - The Flask session cookie to decode. This cookie should be a string representing the Flask session cookie obtained from the client's request.
  * @returns {string} A string representing the decoded JSON object contained within the Flask session cookie.
  */
-function decodeFlaskSessionCookieJson(cookie) {
+function decodeSessionCookieJson(cookie) {
     if (!cookie) {
         console.error("Input error: no cookie passed");
         return "";
@@ -49,5 +49,5 @@ function decodeFlaskSessionCookieJson(cookie) {
 
 
 module.exports = {
-    decodeFlaskSessionCookieJson,
+    decodeFlaskSessionCookieJson: decodeSessionCookieJson,
 };
