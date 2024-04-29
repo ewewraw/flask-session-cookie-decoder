@@ -1,3 +1,9 @@
 declare module 'flask-session-cookie-decoder' {
-    export function decodeSessionCookieJson(cookie: string): string;
+    export function decodeFlaskSessionCookieJson(cookie: string): string;
+
+    export function decodeFlaskSessionCookieJsonWithZlibModule(cookie: string): string;
+
+    export function decodeFlaskSessionCookieJsonWithZlibjs(cookie: string): string;
+
+    export function getDecodedSessionCookieJson(cookie: string): string;
 }
