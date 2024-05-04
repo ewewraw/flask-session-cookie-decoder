@@ -6,7 +6,7 @@ const pako = require("pako");
  * @returns {string} A string representing the decoded JSON object contained within the Flask session cookie.
  */
 function getDecodedSessionCookieJson(cookie) {
-    if (!cookie) {
+    if (!cookie || cookie === '') {
         console.error("Input error: no cookie passed");
         return "";
     }
@@ -26,7 +26,17 @@ function getDecodedSessionCookieJson(cookie) {
         return "Error decoding base64: " + atobError.message;
     }
 
+    if (!decodedData) {
+        console.error("Failed to decode base64 - decoded data is empty");
+        return "Failed to decode base64 - decoded data is empty";
+    }
+
     let binaryData = new Uint8Array(decodedData.length);
+
+    if (!binaryData) {
+        console.error("Failed to parse binary array - decoded data is empty");
+        return "Failed to parse binary array - decoded data is empty";
+    }
 
     try {
         for (let i = 0; i < decodedData.length; i++) {
@@ -47,6 +57,24 @@ function getDecodedSessionCookieJson(cookie) {
     return decodedData;
 }
 
+
+/**
+ * Retrieves the value of a cookie by its name from the browser's cookies.
+ * @param {string} name - The name of the cookie whose value is to be retrieved.
+ * @returns {string} The value of the cookie specified by the provided name. If the cookie is not found, an empty string is returned.
+ */
+function getCookieValueByName(name) {
+    const regex = new RegExp(`(^| )${name}=([^;]+)`)
+    const match = document.cookie.match(regex)
+    if (match) {
+        return match[2]
+    } else {
+        console.error("No cookie with name '", name, "' found");
+        return ''
+    }
+}
+
 module.exports = {
-    getDecodedSessionCookieJson
+    getDecodedSessionCookieJson,
+    getCookieValueByName
 };

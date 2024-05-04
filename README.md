@@ -14,9 +14,9 @@ npm install flask-session-cookie-decoder
 ## Usage
 
 ```javascript
-const { getDecodedSessionCookieJson } = require('flask-session-cookie-decoder');
+const { getDecodedSessionCookieJson, getCookieValueByName } = require('flask-session-cookie-decoder');
 
-const cookie = 'YOUR_FLASK_SESSION_COOKIE_STRING_HERE';
+const cookie = getCookieValueByName('YOUR_COOKIE_NAME_HERE');
 const decodedData = getDecodedSessionCookieJson(cookie);
 
 console.log(decodedData);
@@ -25,8 +25,8 @@ console.log(decodedData);
 ## Function Signature
 ```typescript
 getDecodedSessionCookieJson(cookie: string): string
+getCookieValueByName(name: string): string
 ```
-
 
 ### Parameters
 * cookie (string): The Flask session cookie to decode. This should be a string representing the Flask session cookie obtained from the client's request.
@@ -35,9 +35,10 @@ getDecodedSessionCookieJson(cookie: string): string
 
 ## Example
 ```javascript
-const { getDecodedSessionCookieJson } = require('flask-session-cookie-decoder');
+const { getDecodedSessionCookieJson, getCookieValueByName} = require('flask-session-cookie-decoder');
 
-const cookie = "eyJpZCI6NSwibmFtZSI6Iml0c2Rhbmdlcm91cyJ9.6YP6T0BaO67XP--9UzTrmurXSmg"
+const cookie = getCookieValueByName('session');
+// example of cookie value: 'eyJpZCI6NSwibmFtZSI6Iml0c2Rhbmdlcm91cyJ9.6YP6T0BaO67XP--9UzTrmurXSmg'
 const decodedData = getDecodedSessionCookieJson(cookie);
 
 console.log(decodedData); // {"id": 5, "name": "itsdangerous"}
